@@ -22,6 +22,9 @@ app.get('/', (req, res) => {
   });
 });
 
+const weatherRouter = require('./routes/weather');
+app.use('/api/weather', weatherRouter);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
