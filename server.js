@@ -9,18 +9,22 @@ app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
-//dummy weather endpoint
- res.json(
-    {
-        city: "Ghent",
-        country: "Belgium",
-        lat: 51.0543,
-        lon: 3.7174,
-        temperature: 15,
-        description: "Partly cloudy" 
-    }
- )
+  res.json({
+    message: '🌤️ Welcome to the Weather API Server',
+    usage: {
+      info: 'Use the /api/weather endpoint to get live weather data by city name.',
+      example: '/api/weather?city=Ghent',
+      note: 'You can change the city parameter to any location you want.',
+    },
+    author: 'Christian Oguine',
+    status: 'running',
+    timestamp: new Date().toISOString()
+  });
 });
+
+const weatherRouter = require('./routes/weather');
+app.use('/api/weather', weatherRouter);
+
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
