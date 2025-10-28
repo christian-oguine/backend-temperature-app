@@ -2,7 +2,7 @@
   "name": "backend-temperature-app",
   "version": "1.0.0",
   "description": "Backend server for a weather application that displays weather based on city name",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
