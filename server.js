@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');          
 
 const app = express();
-const port = process.env.PORT; 
+const port = process.env.PORT || 5000;
 
 app.use(cors());                       
 app.use(express.json());
@@ -26,7 +26,7 @@ const weatherRouter = require('./routes/weather');
 app.use('/api/weather', weatherRouter);
 
 
-app.listen(port, () => {
+app.listen(port, '0.0.0.0', () => {
   console.log(`Server is running on port ${port}`);
 });
 
